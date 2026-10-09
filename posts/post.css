@@ -40,6 +40,18 @@ blockquote {
 
 blockquote p { margin: 0 !important; }
 
+.comments {
+  margin-top: 56px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.comments h2 {
+  margin: 0 0 20px;
+  font-size: 24px;
+  line-height: 1.2;
+}
+
 @media (max-width: 768px) {
   .article-header h1 { font-size: 32px; }
 }
