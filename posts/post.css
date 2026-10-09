@@ -42,6 +42,8 @@
   border-radius: 4px;
 }
 
+.article-body figure.portrait img { max-width: 420px; }
+
 .article-body figcaption {
   margin-top: 8px;
   color: var(--secondary);
