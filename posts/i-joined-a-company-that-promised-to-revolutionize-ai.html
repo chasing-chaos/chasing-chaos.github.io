@@ -123,27 +123,29 @@
         <p class="reaction-status" aria-live="polite"></p>
       </section>
 
-      <section class="comments" aria-labelledby="comments-title">
+      <section class="comments" data-page-id="i-joined-a-company-that-promised-to-revolutionize-ai" aria-labelledby="comments-title">
         <h2 id="comments-title">Comments</h2>
-        <script src="https://giscus.app/client.js"
-                data-repo="chasing-chaos/chasing-chaos.github.io"
-                data-repo-id="R_kgDOVBvVzw"
-                data-category="General"
-                data-category-id="DIC_kwDOVBvVz84DHYdg"
-                data-mapping="pathname"
-                data-strict="0"
-                data-reactions-enabled="0"
-                data-emit-metadata="0"
-                data-input-position="top"
-                data-theme="light"
-                data-lang="en"
-                data-loading="lazy"
-                crossorigin="anonymous"
-                async>
-        </script>
+        <form class="comment-form">
+          <label for="comment-name">Name <span>(optional)</span></label>
+          <input id="comment-name" name="name" type="text" maxlength="80" autocomplete="nickname" placeholder="Anonymous">
+
+          <label for="comment-body">Comment</label>
+          <textarea id="comment-body" name="comment" rows="5" minlength="2" maxlength="2000" required></textarea>
+
+          <div class="comment-submit-row">
+            <button type="submit">Submit comment</button>
+            <span>Comments appear after approval.</span>
+          </div>
+          <p class="comment-form-status" aria-live="polite"></p>
+        </form>
+
+        <div class="comment-list" aria-live="polite">
+          <p class="comment-empty">Loading comments…</p>
+        </div>
       </section>
     </article>
   </main>
   <script type="module" src="../reactions.js?v=1"></script>
+  <script type="module" src="../comments.js?v=1"></script>
 </body>
 </html>

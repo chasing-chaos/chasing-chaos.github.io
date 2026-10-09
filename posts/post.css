@@ -123,6 +123,118 @@ blockquote p { margin: 0 !important; }
   line-height: 1.2;
 }
 
+.comment-form {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 40px;
+  padding: 20px;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.comment-form label {
+  margin-top: 4px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.comment-form label span,
+.comment-submit-row span {
+  color: var(--secondary);
+  font-weight: 400;
+}
+
+.comment-form input,
+.comment-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  color: var(--primary);
+  background: var(--theme);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font: inherit;
+}
+
+.comment-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.comment-form input:focus,
+.comment-form textarea:focus {
+  border-color: var(--secondary);
+  outline: 2px solid transparent;
+}
+
+.comment-submit-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.comment-submit-row button {
+  min-height: 42px;
+  padding: 8px 16px;
+  color: var(--theme);
+  background: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: 6px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.comment-submit-row button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.comment-submit-row span,
+.comment-form-status,
+.comment-empty {
+  font-size: 13px;
+}
+
+.comment-form-status {
+  min-height: 1.6em;
+  margin: 0;
+  color: var(--secondary);
+}
+
+.comment {
+  padding: 20px 0;
+  border-top: 1px solid var(--border);
+}
+
+.comment:first-child { border-top: 0; }
+
+.comment-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.comment-name { font-weight: 600; }
+
+.comment-time,
+.comment-empty {
+  color: var(--secondary);
+}
+
+.comment-time { font-size: 13px; }
+
+.comment-body {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
 @media (max-width: 768px) {
   .article-header h1 { font-size: 32px; }
+
+  .comment-form { padding: 14px; }
 }
