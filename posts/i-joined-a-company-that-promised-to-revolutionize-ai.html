@@ -104,6 +104,25 @@
         <p>I managed to quit in one week. It took the company much longer to figure out how to let my laptop quit.</p>
       </div>
 
+      <section class="reactions" data-page-id="i-joined-a-company-that-promised-to-revolutionize-ai" aria-labelledby="reactions-title">
+        <h2 id="reactions-title">React to this post</h2>
+        <div class="reaction-list" role="group" aria-label="Post reactions">
+          <button class="reaction-button" type="button" data-reaction="like" aria-pressed="false" aria-label="Like">
+            <span aria-hidden="true">👍</span><span class="reaction-count">0</span>
+          </button>
+          <button class="reaction-button" type="button" data-reaction="love" aria-pressed="false" aria-label="Love">
+            <span aria-hidden="true">❤️</span><span class="reaction-count">0</span>
+          </button>
+          <button class="reaction-button" type="button" data-reaction="laugh" aria-pressed="false" aria-label="Laugh">
+            <span aria-hidden="true">😂</span><span class="reaction-count">0</span>
+          </button>
+          <button class="reaction-button" type="button" data-reaction="think" aria-pressed="false" aria-label="Thought-provoking">
+            <span aria-hidden="true">🤔</span><span class="reaction-count">0</span>
+          </button>
+        </div>
+        <p class="reaction-status" aria-live="polite"></p>
+      </section>
+
       <section class="comments" aria-labelledby="comments-title">
         <h2 id="comments-title">Comments</h2>
         <script src="https://giscus.app/client.js"
@@ -113,7 +132,7 @@
                 data-category-id="DIC_kwDOVBvVz84DHYdg"
                 data-mapping="pathname"
                 data-strict="0"
-                data-reactions-enabled="1"
+                data-reactions-enabled="0"
                 data-emit-metadata="0"
                 data-input-position="top"
                 data-theme="light"
@@ -125,5 +144,6 @@
       </section>
     </article>
   </main>
+  <script type="module" src="../reactions.js?v=1"></script>
 </body>
 </html>

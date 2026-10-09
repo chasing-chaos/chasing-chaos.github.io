@@ -40,6 +40,77 @@ blockquote {
 
 blockquote p { margin: 0 !important; }
 
+.reactions {
+  margin-top: 56px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.reactions h2,
+.comments h2 {
+  font-size: 24px;
+}
+
+.reactions h2 {
+  margin: 0 0 16px;
+  line-height: 1.2;
+}
+
+.reaction-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.reaction-button {
+  display: inline-flex;
+  min-width: 72px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 14px;
+  color: var(--primary);
+  background: var(--theme);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font: inherit;
+  cursor: pointer;
+  transition: background-color 0.1s, border-color 0.1s, transform 0.1s;
+}
+
+.reaction-button:hover,
+.reaction-button[aria-pressed="true"] {
+  background: var(--code-bg);
+  border-color: var(--secondary);
+}
+
+.reaction-button:active { transform: scale(0.96); }
+
+.reaction-button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.reaction-button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.reaction-count {
+  min-width: 1ch;
+  color: var(--secondary);
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+
+.reaction-status {
+  min-height: 1.6em;
+  margin: 8px 0 0;
+  color: var(--secondary);
+  font-size: 13px;
+}
+
 .comments {
   margin-top: 56px;
   padding-top: 24px;
