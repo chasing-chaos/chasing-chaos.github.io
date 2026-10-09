@@ -31,6 +31,25 @@
   line-height: 1.2;
 }
 
+.article-body figure {
+  margin: 36px 0 0;
+}
+
+.article-body figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.article-body figcaption {
+  margin-top: 8px;
+  color: var(--secondary);
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: center;
+}
+
 blockquote {
   margin: 20px 0;
   padding: 0 14px;
