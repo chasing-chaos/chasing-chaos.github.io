@@ -50,7 +50,7 @@ if (container) {
     try {
       await ensureAnonymousSession();
       await loadReactions();
-      status.textContent = "No sign-in required.";
+      status.textContent = "";
     } catch (error) {
       console.error(error);
       status.textContent = "Reactions are temporarily unavailable.";
