@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Revisiting an interview question about dual-run migration when neither system is trusted.">
+  <meta name="theme-color" content="#ffffff">
+  <title>Interview Question Retro - When Neither System Is Trusted - Chasing Chaos</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23181715'/%3E%3Cpath d='M18 38c8-22 21-22 28-12-7-2-13 2-15 9 7-5 13-3 15 4-11-4-17 9-28-1Z' fill='%23f7f5ef'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../styles.css?v=2">
+  <link rel="stylesheet" href="post.css?v=2">
+</head>
+<body>
+  <header class="site-header">
+    <a class="wordmark" href="../">Chasing Chaos</a>
+  </header>
+
+  <main>
+    <article class="article">
+      <header class="article-header">
+        <time datetime="2026-11-03">November 3, 2026</time>
+        <h1>Interview Question Retro - When Neither System Is Trusted</h1>
+      </header>
+
+      <div class="article-body">
+        <p>Recently, I interviewed with a large data company. They asked an interesting question: “How would you run a dual-system migration when neither system can be treated as the truth?”</p>
+
+        <p>After the interview, I revisited the question. Here’s my thought:</p>
+
+        <p class="thought-item">1. We can separate different kinds of reference<br>
+          - Production (customer-facing output / reporting): use the old system. New system does shadow run only.<br>
+          - Truth: judge based on the original data source as opposed either system<br>
+          - Baseline: diff uses the old system as the reference point</p>
+
+        <p class="thought-item">2. Say if two systems' results don’t match, we can first exclude false diff cases, e.g.,<br>
+          - Design difference: maybe the new system is designed to calculate differently<br>
+          - Timing difference: cut-off times, sync delays. We can recheck after one cycle &amp; see if it’s a real problem</p>
+
+        <p class="thought-item">3. Reconcile the real diffs using sample &amp; totals<br>
+          - Full volume stays at aggregate reconciliation only to save cost<br>
+          - We can use stratified sampling for details with human adjudication. The adjudicated golden samples get reused.</p>
+
+        <p class="thought-item">4. In the case when both systems make the same mistake, their outputs agree, and diff sees nothing, we can<br>
+          - Reconcile totals back to the source using lineage<br>
+          - Run a fixed golden sample through both systems on a schedule</p>
+
+        <p class="thought-item">5. We can cut over when unexplained diffs fall below field-level threshold. After cut-over, we can keep the old system read-only for at least a full close cycle with a rollback plan</p>
+
+      </div>
+
+      <section class="reactions" data-page-id="when-neither-system-is-trusted" aria-labelledby="reactions-title">
+        <h2 id="reactions-title">React to this post</h2>
+        <div class="reaction-list" role="group" aria-label="Post reactions">
+          <button class="reaction-button" type="button" data-reaction="like" aria-pressed="false" aria-label="Like"><span aria-hidden="true">👍</span><span class="reaction-count">0</span></button>
+          <button class="reaction-button" type="button" data-reaction="love" aria-pressed="false" aria-label="Love"><span aria-hidden="true">❤️</span><span class="reaction-count">0</span></button>
+          <button class="reaction-button" type="button" data-reaction="laugh" aria-pressed="false" aria-label="Laugh"><span aria-hidden="true">😂</span><span class="reaction-count">0</span></button>
+          <button class="reaction-button" type="button" data-reaction="think" aria-pressed="false" aria-label="Thought-provoking"><span aria-hidden="true">🤔</span><span class="reaction-count">0</span></button>
+        </div>
+        <p class="reaction-status" aria-live="polite"></p>
+      </section>
+
+      <section class="comments" data-page-id="when-neither-system-is-trusted" aria-labelledby="comments-title">
+        <h2 id="comments-title">Comments</h2>
+        <form class="comment-form">
+          <label for="comment-name">Name <span>(optional)</span></label>
+          <input id="comment-name" name="name" type="text" maxlength="80" autocomplete="nickname" placeholder="Anonymous">
+
+          <label for="comment-body">Comment</label>
+          <textarea id="comment-body" name="comment" rows="5" minlength="2" maxlength="2000" required></textarea>
+
+          <div class="comment-submit-row">
+            <button type="submit">Submit comment</button>
+            <span>Comments appear after approval.</span>
+          </div>
+          <p class="comment-form-status" aria-live="polite"></p>
+        </form>
+
+        <div class="comment-list" aria-live="polite">
+          <p class="comment-empty">Loading comments…</p>
+        </div>
+      </section>
+    </article>
+  </main>
+  <script type="module" src="../reactions.js?v=2"></script>
+  <script type="module" src="../comments.js?v=1"></script>
+</body>
+</html>

@@ -20,6 +20,8 @@
 
 .article-body p { margin: 0 0 var(--content-gap); }
 
+.article-body .thought-item { margin-bottom: 2em; }
+
 .article-body .lede {
   font-size: 16px;
   line-height: 1.6;
